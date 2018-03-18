@@ -39,30 +39,104 @@ void main() {
   /* Other Variable Declarations Go Here */
 
   /* Statistics and Printing Functions Go Here */
+  print_statistics(test,SIZE);
 
 }
 
 /* Add other Implementation File Code Here */
-unsigned char sort_array(unsigned char stat_array[], int n)
+void sort_array(unsigned char stat_array[], int n)
 {
+  int i,j;
+  unsigned char large;
+  for(i=0;i<n;i++)
+  { large = stat_array[i];
+    for(j=i+1;j<n;j++)
+    {
+      if (large<stat_array[j])
+      {
+        stat_array[i] = stat_array[j];
+        stat_array[j] = large;
+        large = stat_array[i];
+      }
+    }
+  }
 }
+
 int median(unsigned char stat_array[], int n)
 {
+  int middle_value;
+  sort_array(stat_array,n);
+  if (n%2 == 0)
+  {
+    middle_value = (int)(((int)stat_array[n/2-1]+(int)stat_array[n/2])/2);
+  }
+  else
+  {
+    middle_value = (int)(stat_array[(n+1)/2-1]);
+  }
+  return middle_value;
 }
+
 int mean(unsigned char stat_array[], int n)
 {
+  int i,avg;
+  int sum=0;
+  for(i=0;i<n;i++)
+  {
+    sum+=(int)stat_array[i];
+  }
+  avg = (int)(sum/n);
+  return avg;
 }
+
 int max(unsigned char stat_array[], int n)
 {
+  int i;
+  unsigned char greatest = stat_array[0];
+  for(i=1;i<n;i++)
+  {
+    if (greatest<stat_array[i])
+    {
+      greatest = stat_array[i];
+    }
+  }
+  return (int)greatest;
 }
+
 int min(unsigned char stat_array[], int n)
 {
+  int i;
+  unsigned char lowest = stat_array[0];
+  for(i=1;i<n;i++)
+  {
+    if (lowest>stat_array[i])
+    {
+      lowest = stat_array[i];
+    }
+  }
+  return (int)lowest;
 }
+
 void print_array(unsigned char stat_array[], int n)
 {
+  printf("\nThe data is:");
+  for(int i=0;i<n;i++)
+  {
+    if(i%5==0)
+    {
+      printf("\n");
+    }
+    printf("%d ",(int)stat_array[i]);
+  }
 }
+
 void print_statistics(unsigned char stat_array[], int n)
 {
+  print_array(stat_array,n);
+  printf("\n\nMaximum value is: %d",max(stat_array,n));
+  printf("\nMinimum value is: %d",min(stat_array,n));
+  printf("\nMedian value is: %d",median(stat_array,n));
+  printf("\nMean value is: %d\n",mean(stat_array,n));
 }
 
 

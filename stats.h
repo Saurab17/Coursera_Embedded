@@ -48,9 +48,9 @@
 *
 *   @param stat_array: Char array of numbers to be sorted.
 *   @param n: The size of array.
-*   @return : Returns sorted char type array.
+*   @return : No return, only sorting the array.
 *
-**/unsigned char sort_array(unsigned char stat_array[], int n);
+**/void sort_array(unsigned char stat_array[], int n);
 
 /**
 *   @brief Finds median of an array of numbers.
