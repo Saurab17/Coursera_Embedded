@@ -9,13 +9,14 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file <stats.c> 
+ * @brief <A program to find statistical values of a given data. >
  *
- * <Add Extended Description Here>
+ * <This file contains the program to calculate mean, median, max and min values
+ *   of a given data set and display the results.>
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author <Saurabh Yadav>
+ * @date <18th March 2018>
  *
  */
 
@@ -36,8 +37,54 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
+
   /* Statistics and Printing Functions Go Here */
 
 }
 
 /* Add other Implementation File Code Here */
+unsigned char sort_array(unsigned char stat_array[], int n)
+{
+}
+int median(unsigned char stat_array[], int n)
+{
+}
+int mean(unsigned char stat_array[], int n)
+{
+}
+int max(unsigned char stat_array[], int n)
+{
+}
+int min(unsigned char stat_array[], int n)
+{
+}
+void print_array(unsigned char stat_array[], int n)
+{
+}
+void print_statistics(unsigned char stat_array[], int n)
+{
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

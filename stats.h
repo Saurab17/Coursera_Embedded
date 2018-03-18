@@ -9,32 +9,86 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file <stats.h> 
+ * @brief <stats.c header file >
  *
- * <Add Extended Description Here>
+ * <File containing function prototypes and function documentation for statistics program>
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author <Saurabh Yadav>
+ * @date <18th March 2018>
  *
  */
 #ifndef __STATS_H__
 #define __STATS_H__
 
-/* Add Your Declarations and Function Comments here */ 
+/**
+*   @brief Print the statistics of an array.
+*   This function takes input char array and its size of type int.
+*   It then calls functions to calculate mean, median, min, max values and prints them.
+*
+*   @param statarray: Char array of numbers whose stats are to be printed.
+*   @param n: The size of array.
+*   @return : Doesn't return a value.
+*
+**/void print_statistics(unsigned char stat_array[], int n); 
 
 /**
- * @brief <Add Brief Description of Function Here>
- *
- * <Add Extended Description Here>
- *
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- *
- * @return <Add Return Informaiton here>
- */
+*   @brief Prints an array.
+*   Given an array of data and its length, it prints its values.
+*
+*   @param stat_array: Char array of numbers to be printed.
+*   @param n: The size of array.
+*   @return : Doesn't return a value.
+*
+**/void print_array(unsigned char stat_array[], int n);
 
+/**
+*   @brief Sorts an array.
+*   Given an array of data and its length, it sorts it in descending order.
+*
+*   @param stat_array: Char array of numbers to be sorted.
+*   @param n: The size of array.
+*   @return : Returns sorted char type array.
+*
+**/unsigned char sort_array(unsigned char stat_array[], int n);
 
+/**
+*   @brief Finds median of an array of numbers.
+*   Given an array of data and its length, it finds the median value.
+*
+*   @param stat_array: Char array of numbers to be sorted.
+*   @param n: The size of array.
+*   @return : Returns median value as integer.
+*
+**/int median(unsigned char stat_array[], int n);
+
+/**
+*   @brief Finds mean of an array of numbers.
+*   Given an array of data and its length, it finds the mean value.
+*
+*   @param stat_array: Char array of numbers.
+*   @param n: The size of array.
+*   @return : Returns mean value as integer.
+*
+**/int mean(unsigned char stat_array[], int n);
+
+/**
+*   @brief Finds maximum value of an array of numbers.
+*   Given an array of data and its length, it finds the maximum value.
+*
+*   @param stat_array: Char array of numbers.
+*   @param n: The size of array.
+*   @return : Returns maximum value.
+*
+**/int max(unsigned char stat_array[], int n);
+
+/**
+*   @brief Finds minimum value of an array of numbers.
+*   Given an array of data and its length, it finds the minimum value.
+*
+*   @param stat_array: Char array of numbers.
+*   @param n: The size of array.
+*   @return : Returns minimum value.
+*
+**/int min(unsigned char stat_array[], int n);
 #endif /* __STATS_H__ */
