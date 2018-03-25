@@ -10,32 +10,42 @@
 #*****************************************************************************
 
 #------------------------------------------------------------------------------
-# <Put a Description Here>
+# <Makefile for the c1m2 assessment>
 #
 # Use: make [TARGET] [PLATFORM-OVERRIDES]
 #
 # Build Targets:
-#      <Put a description of the supported targets here>
+#      <File>.i : Generate the preprocessed output of c-program files.
+#      <File>.asm : Generate assembly output of c-program files and
+#                   final output executable.
+#      <File>.o : Generate the object file for c-source files.
+#      compile-all : Compile all object files without linking.
+#      Build : Compile all object files and link to final executable.
+#      Clean : remove all non-source build files like .o,.asm etc. 
 #
 # Platform Overrides:
-#      <Put a description of the supported Overrides here
+#      PLATFORM : For native or cross compilation (HOST,MSP432)
 #
 #------------------------------------------------------------------------------
 include sources.mk
 
 # Platform Overrides
-PLATFORM = 
+PLATFORM = HOST 
 
 # Architectures Specific Flags
-LINKER_FILE = 
-CPU = 
-ARCH = 
-SPECS = 
+LINKER_FILE = msp432p401r.lds 
+CPU = cortex-m4
+ARCH = thumb
+SPECS = nosys.specs
+Platform_Target = -D$(PLATFORM) 
 
 # Compiler Flags and Defines
 CC = 
-LD = 
+LD = arm-none-eabi-ld
+TARGET = c1m2
 LDFLAGS = 
 CFLAGS = 
 CPPFLAGs = 
+GFLAGS = -Wall -g -O0 -std=c99
+
 
