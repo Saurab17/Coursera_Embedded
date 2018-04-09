@@ -15,12 +15,12 @@
  * <File containing function prototypes and function documentation for statistics program>
  *
  * @author <Saurabh Yadav>
- * @date <18th March 2018>
+ * @date <4th April 2018>
  *
  */
 #ifndef __STATS_H__
 #define __STATS_H__
-
+#include "platform.h"
 /**
 *   @brief Print the statistics of an array.
 *   This function takes input char array and its size of type int.

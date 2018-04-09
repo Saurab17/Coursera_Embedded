@@ -9,19 +9,20 @@
  *
  *****************************************************************************/
 /**
- * @file memory.h
- * @brief Abstraction of memory read and write operations
+ * @file data.h
+ * @brief This file does some very basic data manipulation
  *
  * This header file provides an abstraction of reading and
  * writing to memory via function calls. 
  *
- * @author Alex Fosdick
- * @date April 1 2017
+ * @author Saurabh Yadav
+ * @date April 5 2018
  *
  */
 #ifndef __MEMORY_H__
 #define __MEMORY_H__
-
+#include <stdint.h>
+#include <stdlib.h>
 /**
  * @brief Sets a value of a data array 
  *
@@ -89,5 +90,102 @@ void set_all(char * ptr, char value, unsigned int size);
  * @return void.
  */
 void clear_all(char * ptr, unsigned int size);
+
+/**
+ * @brief Moves a length of bytes from source to destination
+ *
+ * Given pointers to source and destination addresses and length of bytes,
+ * this function will move the data bytes from source to destination 
+ * address without any data corruption. Returns destination address
+ *
+ * @param src Pointer to source location
+ * @param dst Pointer to destination location
+ * @param length Number of bytes to move
+ *
+ * @return dest The destination address pointer.
+ */
+uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length);
+
+/**
+ * @brief Moves a length of bytes from source to destination
+ *
+ * Given pointers to source and destination addresses and length of bytes,
+ * this function will move the data bytes from source to destination 
+ * address. This function doesn't handle the case when distance between
+ * two addresses is less than length of bytes to move. Hence data corruption
+ * may occur.
+ *
+ * @param src Pointer to source location
+ * @param dst Pointer to destination location
+ * @param length Number of bytes to move
+ *
+ * @return dest The destination address pointer.
+ */
+uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length);
+
+/**
+ * @brief Sets a length of bytes to given value
+ *
+ * Given pointer to source address,length of bytes, this function sets
+ * those length of bytes starting from source address to a given value. 
+ * Returns the source address.
+ *
+ * @param src Pointer to source location
+ * @param value Value to set
+ * @param length Number of bytes
+ *
+ * @return sour The source address pointer.
+ */
+uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value);
+
+/**
+ * @brief Sets a length of bytes to zero.
+ *
+ * Given pointer to source address,length of bytes, this function sets
+ * those length of bytes starting from source address to zero. 
+ * Returns the source address.
+ *
+ * @param src Pointer to source location
+ * @param length Number of bytes
+ *
+ * @return sour The source address pointer.
+**/
+uint8_t * my_memzero(uint8_t * src, size_t length);
+
+/**
+ * @brief Reverses a length of bytes.
+ *
+ * Given pointer to source address,length of bytes, this function reverses
+ * the order of value stored by those bytes. Returns the source address.
+ *
+ * @param src Pointer to source location
+ * @param length Number of bytes
+ *
+ * @return sour The source address pointer.
+**/
+uint8_t * my_reverse(uint8_t * src, size_t length);
+
+/**
+ * @brief Dynamic memory allocation.
+ *
+ * Given a length of words, this function allocates that many bytes in dynamic
+ * memory. Return the pointer to start address of allocated memory.
+ 
+ * @param length Number of words
+ *
+ * @return ptr The start address of allocated dynamic memory.
+**/
+int32_t * reserve_words(size_t length);
+
+/**
+ * @brief Frees dynamically allocated memory.
+ *
+ * Given a pointer to dynamic memory address, it frees the memory.
+ 
+ * @param src Pointer to memory
+ *
+ * @return void.
+**/
+void free_words(int32_t * src);
 
 #endif /* __MEMORY_H__ */

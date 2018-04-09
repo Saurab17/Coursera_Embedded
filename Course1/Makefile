@@ -25,14 +25,20 @@
 #
 # Platform Overrides:
 #      PLATFORM - Target platform (HOST, MSP432)
-#
+# Deliverable Overrides:
+#      COURSE - The course to compile for (COURSE1)
+#      DEBUG  - The debug printing flag (VERBOSE)
 #------------------------------------------------------------------------------
 #Target Ouput File
-TARGET = c1m2
+TARGET = c1
 
 # Platform Overrides
 PLATFORM = HOST
+COURSE = COURSE1
+DEBUG = VERBOSE
 TARGET_PLATFORM = -D$(PLATFORM)
+TARGET_COURSE = -D$(COURSE)
+TARGET_DEBUG = -D$(DEBUG)
 include sources.mk
 
 # Architectures Specific Flags
@@ -58,7 +64,7 @@ $(error "Only two available options for platform, 'HOST' and 'MSP432'")
 endif
 
 # Compiler Flags and Defines
-CFLAGS   = -Wall -Werror -g -O0 -std=c99 $(TARGET_PLATFORM) -MMD
+CFLAGS   = -Wall -Werror -g -std=c99 $(TARGET_PLATFORM) $(TARGET_COURSE) $(TARGET_DEBUG) -MMD
 LDFLAGS  = -Wl,-Map=c1m2.map
 CPPFLAGS = $(INCLUDES)
 

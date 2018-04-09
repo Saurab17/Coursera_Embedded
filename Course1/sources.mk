@@ -11,7 +11,10 @@
 
 
 SOURCES = ./src/main.c \
-          ./src/memory.c
+          ./src/memory.c \
+          ./src/data.c \
+	  ./src/stats.c \
+	  ./src/course1.c
 
 ifeq ($(PLATFORM),HOST)
 else ifeq ($(PLATFORM),MSP432)

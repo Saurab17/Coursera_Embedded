@@ -16,34 +16,15 @@
  *   of a given data set and display the results.>
  *
  * @author <Saurabh Yadav>
- * @date <18th March 2018>
+ * @date <4 April 2018>
  *
  */
 
 
 
-#include <stdio.h>
+
 #include "stats.h"
 
-/* Size of the Data Set */
-#define SIZE (40)
-
-void main() {
-
-  unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
-                              114, 88,   45,  76, 123,  87,  25,  23,
-                              200, 122, 150, 90,   92,  87, 177, 244,
-                              201,   6,  12,  60,   8,   2,   5,  67,
-                                7,  87, 250, 230,  99,   3, 100,  90};
-
-  /* Other Variable Declarations Go Here */
-
-  /* Statistics and Printing Functions Go Here */
-  print_statistics(test,SIZE);
-
-}
-
-/* Add other Implementation File Code Here */
 void sort_array(unsigned char stat_array[], int n)
 {
   int i,j;
@@ -119,24 +100,26 @@ int min(unsigned char stat_array[], int n)
 
 void print_array(unsigned char stat_array[], int n)
 {
-  printf("\nThe data is:");
+  #ifdef VERBOSE
+  PRINTF("\nThe data is:");
   for(int i=0;i<n;i++)
   {
     if(i%5==0)
     {
-      printf("\n");
+      PRINTF("\n");
     }
-    printf("%d ",(int)stat_array[i]);
+    PRINTF("%d ",(int)stat_array[i]);
   }
+  #endif
 }
 
 void print_statistics(unsigned char stat_array[], int n)
 {
   print_array(stat_array,n);
-  printf("\n\nMaximum value is: %d",max(stat_array,n));
-  printf("\nMinimum value is: %d",min(stat_array,n));
-  printf("\nMedian value is: %d",median(stat_array,n));
-  printf("\nMean value is: %d\n",mean(stat_array,n));
+  PRINTF("\n\nMaximum value is: %d",max(stat_array,n));
+  PRINTF("\nMinimum value is: %d",min(stat_array,n));
+  PRINTF("\nMedian value is: %d",median(stat_array,n));
+  PRINTF("\nMean value is: %d\n",mean(stat_array,n));
 }
 
 
